@@ -1,0 +1,63 @@
+<html>
+	<head>
+	<style>
+		body
+		{
+			font-family: "Roboto", sans-serif;
+			font-size:20px;
+			padding:16px;			
+		}
+	</style>
+	</head>
+	<body>
+		<p>
+		Acum că avem o strategie de alegere a părinților, trebuie să ne dăm seama cum să folosim reproducerea pentru a genera generația următoare, ținând cont de principiul darwinian al eredității - copiii moștenesc proprietăți de la părinți. Din nou, există o serie de tehnici diferite pe care le-am putea folosi aici. </p>
+	<p>De exemplu, o strategie rezonabilă (și ușor de programat) este reproducerea asexuală, ceea ce înseamnă că alegem doar un părinte și creăm un copil care este o copie exactă a acelui părinte. Abordarea standard cu algoritmi genetici este însă să alegeți doi părinți și să creați un copil în conformitate cu următorii pași.
+</p>
+	<h2>1.Crossover</h2>
+	<p>
+	Crossover este procesul prin care un copil este creat prin copierea unei părți din ADN-ul unui părinte și restul de ADN de la al doilea părinte.
+	</p>
+	<p>
+	Părinte A: ELEV<br>
+	Părinte B: MASĂ<br>
+	</p>
+	<p>
+	Poate că cel mai ușor mod (să numim această metodă 50/50) ar fi să luăm primele două caractere din A și ultimele două din B, lăsându-ne cu: ELSĂ și MAEV.</p>
+	<p>	
+	O variantă a acestei tehnici este să alegem un punct intermediar aleatoriu. Cu alte cuvinte, nu trebuie să alegem exact jumătate din cod de la fiecare părinte. Uneori am putea termina cu EASĂ, iar alteori cu MLEV. Acest lucru este de preferat abordării 50/50, deoarece creștem varietatea posibilităților pentru următoarea generație. 
+	</p>
+	<p>O altă posibilitate este să selectați la întâmplare un părinte pentru fiecare literă din șirul copilului. Vă puteți gândi la acest lucru ca aruncând o monedă de patru ori: cap preiau de la părintele A, pajură de la părintele B.</p>
+	<p> Aici am putea ajunge cu multe rezultate diferite, cum ar fi: ELEĂ, MLSĂ, EAEĂ, MALĂ, etc. Această strategie va produce în esență aceleași rezultate ca metoda punctului mediu aleatoriu; cu toate acestea, dacă ordinea informațiilor genetice joacă un anumit rol în exprimarea fenotipului, puteți prefera o soluție față de cealaltă
+	</p>
+	<h2>2.Mutație</h2>
+	<p>
+	Odată ce ADN-ul copilului a fost creat prin crossover, aplicăm un proces final înainte de a adăuga copilul la următoarea generație - mutația. Mutația este o etapă opțională, deoarece există cazuri în care este inutilă.</p>
+	<p> Cu toate acestea, există din cauza principiului darwinian de variație. Am creat o populație inițială la întâmplare, asigurându-ne că începem cu o varietate de elemente. Cu toate acestea, nu poate exista atât de multă varietate atunci când însămânțăm prima generație, iar mutația ne permite să introducem o varietate suplimentară în întregul proces evolutiv.</p>
+	<p> Mutația este descrisă în termeni de viteză. Un algoritm genetic dat ar putea avea o rată de mutație de 5% sau 1% sau 0,1%, etc. Să presupunem că tocmai am terminat cu crossover și am ajuns la copilul ELSĂ. Dacă avem o rată de mutație de 1%, acest lucru înseamnă că pentru fiecare caracter din fraza generată de crossover, există o șansă de 1% ca acesta să aibă o mutație. </p>
+	<p>Ce înseamnă pentru o literă să aibă o mutație? În acest caz, definim mutația ca alegerea unui nou caracter aleatoriu. O probabilitate de 1% este destul de scăzută și de cele mai multe ori mutația nu va apărea deloc într-un șir de patru caractere (96% din timp mai precis).</p>
+	<p> Cu toate acestea, atunci când se întâmplă, caracterul este înlocuit cu unul generat la întâmplare. După cum vom vedea în unele exemple, rata de mutație poate afecta foarte mult comportamentul sistemului. Cu siguranță, o rată de mutație foarte ridicată (cum ar fi, să zicem, 80%) ar anula procesul evolutiv în sine. </p>
+	<p>Dacă majoritatea genelor unui copil sunt generate aleatoriu, atunci nu putem garanta că genele mai „potrivite” apar cu frecvență mai mare cu fiecare generație succesivă. Procesul de selecție (alegerea a doi părinți) și reproducerea (crossover și mutația) se aplică de mai multe ori, de N ori până când avem o nouă populație de N elemente. În acest moment, noua populație de copii devine populația actuală și începem din nou a evalua valabilitatea și a efectua din nou selecția și reproducerea.</p>
+	<p> După ce am descris în detaliu toți pașii algoritmului genetic, este timpul să traducem acești pași în codul de procesare. Deoarece descrierea anterioară a fost un pic lungă, să luăm mai întâi o privire de ansamblu a algoritmului.
+	</p>
+	<p>	
+	Pasul 1: Inițializarea. Creați o populație de N elemente, fiecare cu ADN generat la întâmplare. </p>
+	<p>
+	Pasul 2: Selectarea. Evaluați valabilitatea fiecărui element al populației și alegeți părinții. Dacă valabilitatea este 100% algoritmul trece la Pasul 5. </p>
+	<p>
+	Pasul 3: Reproducerea.</p>
+	<p>
+	a) Alegeți doi părinți cu probabilitate în funcție de valabilitatea relativă. </p>
+	<p>
+	b) Crossover - creează un „copil” prin combinarea ADN-ului acestor doi părinți. </p>
+	<p>
+	c) Mutație - mută ADN-ul copilului pe baza unei probabilități date. </p>
+	<p>
+	d) Adăugați noul copil la o nouă populație. </p>
+	<p>
+	Pasul 4. Înlocuiți vechea populație cu noua populație și reveniți la pasul 2. </p>
+	<p>
+	Pasul 5. Afișați rezultatul.
+	</p>
+	</body>
+</html>

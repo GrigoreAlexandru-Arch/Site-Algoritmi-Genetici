@@ -1,0 +1,37 @@
+<html>
+	<head>
+	<style>
+		body
+			font-family: "Roboto", sans-serif;
+			font-size:20px;
+			padding:16px;			
+		}
+	</style>
+	</head>
+	<body>		
+		<h2>Algoritmi Genetici - Definiție</h2>
+		<p>
+			În timp ce simulările computerizate ale proceselor evolutive datează din anii '50, o mare parte din ceea ce considerăm astăzi algoritmi genetici (cunoscuți și sub denumirea de "GA") a fost dezvoltată de John Holland, profesor la Universitatea din Michigan, a cărui carte  "Adaptation in Natural and
+Artificial Systems" a fost pionieră în cercetarea algoritmilor genetici. Astăzi, mai mulți algoritmi genetici fac parte dintr-un domeniu mai larg de cercetare, denumit adesea „Calcul evolutiv”.
+		</p>
+		<p>
+		Pentru a ajuta la ilustrarea algoritmului genetic tradițional, vom începe cu niște maimuțe fictive care apasă butoanele unei tastaturi cu scopul de a scrie lucrările complete ale lui Shakespeare. „Teorema scriitorului maimuță” este stabilită după cum urmează: O maimuță care lovește tastele la întâmplare pe o mașină de scris va tasta în cele din urmă lucrările complete ale lui Shakespeare (având o perioadă infinită de timp). 
+		</p>
+		<p>
+		Problema cu această teorie este că probabilitatea ca maimuța să scrie de fapt Shakespeare este atât de scăzută încât, chiar dacă acea maimuță a început de la Big Bang, sunt incredibil de puține șanse să avem măcar Hamlet în acest moment. 
+		</p>
+		<p>
+		Să luăm în considerare o maimuță pe nume George. George tastează pe o mașină de scris redusă care conține doar douăzeci și șapte de caractere: douăzeci și șase de litere și spațiu liber. Deci, probabilitatea ca George să lovească oricare tastă este una din douăzeci și șapte. Să considerăm că sintagma „a fi sau a nu fi aceasta este întrebarea”. Expresia are 40 de caractere. Dacă George începe să tasteze, șansa că va apăsa tasta primei litere este 1 din 27. Din moment ce este probabilitatea de a alege al doilea caracter corect este, de asemenea, 1 din 27, el are șansa de 1 din 27 * 27 de a alege primele două caractere în ordine corectă.
+		</p>
+		<p>
+		 Prin urmare, probabilitatea ca George să tasteze fraza completă este: (1/27) înmulțit cu el însuși de 40 de ori, adică (1/27)^40, ceea ce este egal cu un 1 împărțit la 1,797,010,299,914,431,210,413,179,829,509,605,039,731,475,627,537,851,106,401 ! </p>
+	<p>Nu este nevoie să spun, chiar și ajungerea la acestă frază, ca să nu vorbesc de o întreagă operă, este foarte puțin probabilă. Chiar dacă George este o simulare computerizată și poate tasta un milion de fraze aleatorii pe secundă, pentru ca George să aibă o probabilitate de 99% să ajungă la bun sfârșit, ar trebui să tasteze 262,415,596,914,285,202,974,390,960,615,389,251,891,335,459 de ani. (Rețineți că vârsta universului este estimată la doar 13.750.000.000 de ani.) </p>
+	<p>Ideea tuturor acestor numere nesatisfăcător de mari nu este să vă dea dureri de cap, ci să demonstreze că un algoritm de forță brută (tastând fiecare frază posibilă aleatorie) nu este o strategie rezonabilă pentru a ajunge din întâmplare la „a fi sau a nu fi aceasta este întrebarea”. De aceea folosim algoritmi genetici, care vor arăta că încă putem să începem cu fraze aleatorii și să găsim soluția prin simularea evoluției. 
+		 </p>
+		<p>
+		Acum, merită remarcat faptul că această problemă (găsește sintagma „a fi sau nu a fi aceasta este întrebarea”) este una ridicolă. Din moment ce știm răspunsul, tot ce trebuie să facem este să îl tipărim. Cu toate acestea, ideea de aici este că soluționarea unei probleme cu un răspuns cunoscut ne permite cu ușurință să testăm codul. </p>
+	<p>După ce am rezolvat cu succes problema, ne putem simți mai încrezători în utilizarea algoritmilor genetici pentru a efectua lucrări reale: rezolvarea problemelor cu răspunsuri necunoscute. Așadar, acest prim exemplu nu servește alt scop decât pentru a demonstra modul în care funcționează algoritmii genetici. Dacă testăm rezultatele algoritmului genetic în funcție de răspunsul cunoscut și obținem „a fi sau nu a fi aceasta este întrebarea”, atunci am reușit să scriem algoritmul nostru genetic.
+		
+		</p>
+	</body>
+</html>

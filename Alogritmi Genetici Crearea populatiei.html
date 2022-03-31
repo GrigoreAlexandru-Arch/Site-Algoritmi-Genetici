@@ -1,0 +1,101 @@
+<html>
+	<head>
+	<style>
+		td,tr,th
+		{
+		border:1px solid #000000;	
+		padding:4px 4px 4px 4px;		
+		}
+		table
+		{
+		border-collapse: collapse;
+		}
+		canvas
+		{
+		margin-left:auto;
+		margin-right:auto;
+		}
+		body
+		{
+			font-family: "Roboto", sans-serif;
+			font-size:20px;
+			padding:16px;			
+		}
+	</style>	
+	</head>
+	<body>
+		<h2>Crearea unei populații</h2>
+		<p>
+		În contextul exemplului maimuțelor tipografice, vom crea o populație de sintagme. (termenul „sintagmă” înseamnă un șir de caractere.) Acum se pune întrebarea: Cum creăm această populație? Aici se aplică principiul darwinian al variației. Să spunem, pentru simplitate, că încercăm să evoluăm sintagma „rac” și că avem o populație de trei sintagme.<br>
+		</p>
+		</p>
+		teb<br>
+		ril<br>
+		uli<br>
+		</p>
+		<p>Sigur, există varietate în cele trei sintagme de mai sus, dar încearcă să amesteci și să potrivești literele în oricare fel și nu vei ajunge niciodată la rac. Nu există suficientă varietate aici pentru a evolua soluția optimă.
+		</p>
+		<p>Cu toate acestea, dacă am avea o populație de mii de sintagme, toate generate la întâmplare, șansele sunt ca cel puțin un membru al populației să aibă un r ca prima literă, unul va avea un a ca a doua și altul un c ca a treia. O populație mare ne va oferi, probabil, suficientă varietate pentru a genera fraza dorită (iar în partea a 2-a a algoritmului, vom avea o altă oportunitate de a introduce și mai multe variații în cazul în care nu este suficientă).
+		</p>
+		<p>Deci putem fi mai specifici în descrierea pasului 1 și să spunem: Creați o populație de elemente generate aleatoriu.</p>
+	<p> Aceasta ridică o altă întrebare importantă. Care este elementul în sine? Putem avea mai multe scenarii diferite: s-ar putea să avem o populație de imagini sau o populație de vehicule. Cheia este că fiecare membru al populației are un „ADN” virtual, un set de proprietăți (le putem numi „gene”) care descriu cum arată un element dat sau cum se comportă. 
+		<p>În cazul maimuței care tastează, de exemplu, ADN-ul este pur și simplu un șir de caractere. În domeniul geneticii, există o distincție importantă între conceptele genotip și fenotip. Codul genetic real - în cazul nostru, informațiile digitale în sine - este un genotip al unui element.
+		</p>
+		<p>Aceasta este ceea ce se transmite din generație în generație. Fenotipul este însă expresia acestor date. Această distincție este esențială pentru modul în care veți utiliza algoritmi genetici. Care sunt obiectele? Cum veți proiecta genotipul (structura de date pentru a stoca proprietățile fiecărui obiect) pentru obiecte, precum și fenotipul (ce exprimă acele variabile). Cel mai simplu exemplu este probabil reprezentarea grafică.
+		</p>
+		<table>		
+		<th>
+		Genotip
+		<th> Fenotip
+		<tr>
+		<td> int c=255;
+		<td> <canvas id ="alb" width="50" height="50" style="border:1px solid #000000;" > </canvas>
+		<tr>
+		<td> int c=127;
+		<td><canvas id="gri" width="50" height="50" style="border:1px solid #000000;" > </canvas>
+		<tr>
+		<td> int c=0;
+		<td><canvas id="negru" width="50" height="50" style="border:1px solid #000000;" > </canvas>
+		</table>
+	<script>
+		var c1 = document.getElementById("gri");		
+		var ctx = c1.getContext("2d");
+		ctx.fillStyle = "#7F7F7F";
+		ctx.fillRect(0,0,50,50);
+		var c2 = document.getElementById("negru");
+		var ctxr = c2.getContext("2d");
+		ctxr.fillRect(0,0,50,50);
+	</script>
+		<p>
+		După cum putem vedea, genotipul este informația digitală. Fiecare culoare este o variabilă care stochează un număr întreg și alegem să exprimăm acest număr întreg sub formă de culoare. Dar modul în care alegem să exprimăm datele este arbitrar. Într-o abordare diferită, am fi putut folosi genotipul pentru a descrie lungimea unei linii, valoarea unei forțe etc.
+		</p>
+		<table>		
+		<th>
+		Genotip
+		<th> Fenotip
+		<tr>
+		<td> int c=255;
+		<td> <canvas id ="linie_lunga" width="300" height="50" style="border:1px solid #000000;" > </canvas>
+		<tr>
+		<td> int c=127;
+		<td><canvas id="linie_scurta" width="300" height="50" style="border:1px solid #000000;" > </canvas>
+		<tr>
+		<td> int c=0;
+		<td><canvas id="negru" width="300" height="50" style="border:1px solid #000000;" > </canvas>
+		</table>
+		<script>
+		var c3 = document.getElementById("linie_lunga");		
+		var ctx = c3.getContext("2d");
+		ctx.beginPath();
+		ctx.moveTo(0, 25);
+		ctx.lineTo(255, 25);
+		ctx.stroke();
+		var c4 = document.getElementById("linie_scurta");
+		var ctxr = c4.getContext("2d");
+		ctxr.beginPath();
+		ctxr.moveTo(0, 25);
+		ctxr.lineTo(127, 25);
+		ctxr.stroke();
+	</script>
+	</body>	
+</html>

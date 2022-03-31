@@ -1,0 +1,77 @@
+﻿<html>
+	<head>
+	<style>
+		body
+		{
+			font-family: "Roboto", sans-serif;
+			font-size:20px;
+			padding:16px;			
+		}
+		td
+		{
+			padding:8px;
+		}
+	</style>
+	</head>
+	<body>
+		<p>Iată unde aplicăm principiul de selecție darwinist. Trebuie să evaluăm populația și să stabilim care membri sunt potriviți pentru a fi selectați ca părinți pentru următoarea generație. Procesul de selecție poate fi împărțit în două etape.</p>
+	<h2>1) Evaluează valabilitatea.</h2>
+	<p>Pentru ca algoritmul nostru genetic să funcționeze corect, va trebui să proiectăm ceea ce se numește funcție de valabilitate. Funcția va produce un scor numeric pentru a descrie valabilitate unui anumit membru al populației. Desigur, în lumea reală creaturilor nu li se dă un scor pur și simplu supraviețuiesc sau nu. 
+	</p>
+	<p>Dar în cazul algoritmului genetic tradițional, în care încercăm să evoluăm o soluție optimă la o problemă, trebuie să putem evalua numeric orice soluție posibilă. Să examinăm exemplul nostru actual, maimuța tipografică. </p>
+	<p>Din nou, să simplificăm scenariul și să spunem că încercăm să evoluăm cuvântul „rac”. Avem trei membri ai populației: tim, iar și lac. Lac este, evident, cel mai potrivit, având în vedere că are două caractere corecte, iar are doar unul, și tim are zero. Aceasta este funcția noastră de valabilitate:</p>
+valabilitatea = numărul de litere corecte
+	<table>
+		<th> ADN
+		<th> Valabilitate
+		<tr>
+		<td> tim
+		<td> 0
+		<tr>
+		<td>iar
+		<td> 1
+		<tr>
+		<td>lac
+		<td> 2
+	</table>	
+	<h2>2)Alegerea părinților</h2>
+	<p>Odată ce valabilitatea a fost calculată pentru toți membrii populației, putem apoi să selectăm care membri sunt potriviți pentru a deveni părinți și a-i plasa într-un „bazin de împerechere”. Putem adopta mai multe abordări diferite aici. </p>
+	<p>De exemplu, am putea folosi ceea ce este cunoscută sub numele de metoda elitistă și să spunem: „Care dintre cei doi membri ai populației au obținut cel mai mare nivel? Voi doi veți face toți copiii pentru următoarea generație.” Aceasta este probabil una dintre metodele mai ușoare de programat, dar zboară în fața principiului variației. Dacă doi membri ai populației (din mii probabil) sunt singurii disponibili pentru a se reproduce, generația următoare va avea o varietate mică și acest lucru ar putea împiedica procesul evolutiv. 
+	</p>
+	<p>Am putea în schimb alegem dintr-un număr mai mare - de exemplu, primii 50% din populație, 500 din 1.000. Acest lucru este la fel de ușor de programat, dar nu va produce rezultate optime. În acest caz, elementele de top cu punctaje mari ar avea aceeași șansă de a fi selectate ca părinți ca cele de la mijloc. Și de ce numărul elementului 500 ar trebui să aibă o șansă egală de reproducere, în timp ce numărul 501 nu are nicio șansă? </p>
+	<p>O soluție mai bună pentru selecție este utilizarea unei metode probabilistice, pe care o vom numi „roata norocului”. Pentru a ilustra această metodă, să luăm în considerare un exemplu simplu în care avem o populație de cinci elemente, fiecare cu punctaj de valabilitate</p>
+	<table>
+	<th> Element
+	<th> Valabilitate
+	<tr>
+	<td>A
+	<td>3
+	<tr>
+	<td>B
+	<td>4
+	<tr>
+	<td>C
+	<td>0,5
+	<tr>
+	<td>D
+	<td>1,5
+	<tr>
+	<td>E
+	<td>1
+	</table>
+	<p>Primul lucru pe care dorim să îl facem este să normalizăm toate scorurile. Când normalizăm un set de scoruri de valabilitate, standardizăm intervalul lor între 0 și 1, ca procent din forma totală. Întâi toate scorurile de valabilitate se adună, total = 3 + 4 + 0,5 + 1 + 1,5 = 10.</p>
+	<p>	Apoi, împărțim fiecare punctaj în funcție de valoare totală, oferindu-ne forma normală.</p>
+	<img src="roata probabilitati.png"><img src="probabilitate.png">
+	<p>
+	Învârtiți roata și veți observa că elementul B are șansele cele mai mari de a fi selectat, urmat de A, apoi E, apoi D și, în final, C. </p>
+	<p>Această selecție bazată pe probabilitate în funcție de valabilitate este o abordare excelentă. În primul rând, garantează că elementele cu cele mai mari punctaje vor avea probabilitate mare să se reproducă. În al doilea rând, nu elimină în totalitate nicio variație de la populație. Spre deosebire de metoda elitistă, chiar și elementul cu cel mai mic punctaj (în acest caz C) are șansa de a transmite informațiile către generația următoare. Este destul de posibil (și de multe ori este cazul) ca elemente cu punctaj scăzut să aibă o minusculă parte din codul genetic, care să fie cu adevărat util și să nu fie eliminate în totalitate din populație. De exemplu, în cazul evoluției „a fi sau a nu fi aceasta e întrebarea”, am putea avea următoarele elemente.
+	</p>
+	<p style="font-family:'Courier New'">
+	A: a fi sau a nu fi aceasta este răspunsuri<br>
+	B: a fi sau a nu fi aceasta este privilegiu<br>
+	C: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxîntrebarea<br>
+	</p>
+	<p>După cum puteți vedea, elementele A și B sunt în mod categoric cele mai potrivite și ar avea cel mai mare punctaj. Dar niciuna nu conține caracterele corecte pentru sfârșitul frazei. Elementul C, deși ar primi un scor foarte mic, se întâmplă să aibă datele genetice pentru sfârșitul frazei. Și, deși am dori să fie selectați A și B pentru a genera majoritatea generației următoare, am dori totuși ca C să aibă mici șanse de a participa la procesul de reproducere.
+	</p>
+	</body>
+</html>

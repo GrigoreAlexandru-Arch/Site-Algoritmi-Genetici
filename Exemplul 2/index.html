@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="../p5/p5.js"></script>
+  <meta charset="utf-8" />
+  <title>Exemplu 2 </title>
+  <style>
+  body
+  {
+  user-drag: none; 
+user-select: none;
+  }
+  button 
+  {
+  background-color: black; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  width:116px;
+  height:48px;
+}
+  button:hover
+  {
+   background-color:white;
+   color:black;
+  }
+  </style>
+</head>
+
+<body>  
+  <table>  
+  <td rowspan="4">  <button id = "buton" onclick="checkStarted()"> Start</button>
+  <td rowspan="4"><button onclick="restart()">Stop</button>
+  <tr>
+  <td> <input type="radio" id="Adaugă obstacol" name="mouse" checked="checked">  <label for="Adaugă obstacol">Adaugă obstacol</label>
+  <td> Mărimea populației:
+  <td> <input id="popmax" type="number" value="500">
+  <td> Forța maximă:
+  <td> <input type="number" id = "forta" value="1">
+  <tr>
+  <td><input type="radio" id="Șterge obstacol" name="mouse">  <label for="Șterge obstacol">Șterge obstacol</label>
+  <td> Timpul maxim: 
+  <td>  <input id="timp" type="number" value="500">
+  <td> Mărime țintă:
+  <td> <input id="d" value="24">
+  <tr>  
+  <td> <input type="radio" id="Mută ținta" name="mouse">  <label for="Mută ținta">Mută ținta</label>
+  <td>  Rata de mutație:
+  <td><input id="rm" type="number" value="0.01">
+  </table>  
+  <script src="dna.js"></script>
+  <script src="population.js"></script>
+  <script src="rocket.js"></script>
+  <script src="obstacle.js"></script>
+  <script src="sketch.js"></script>   
+</body>
+
+</html>
